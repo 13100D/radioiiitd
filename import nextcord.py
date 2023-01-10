@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import nextcord
 from pytube import YouTube
 from pytube import Search
