@@ -12,3 +12,6 @@ i.e can play local files in mopidy and config file pipes audio to icecast server
 
 # can do rn
 - can probably make a workaround temp folder to download mp3 streams and manually play back  somehow using playlist config file or smthn
+-MAJOR UPDATE
+playback without downloads through cache purely is now doable only playback control remain to be implemented
+and embeds ig
