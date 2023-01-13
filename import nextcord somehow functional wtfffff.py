@@ -7,8 +7,8 @@ from nextcord.ext import commands
 bot = commands.Bot()
 from mpd import MPDClient
 bot.client=MPDClient()
-bot.client.timeout = 10                # network timeout in seconds (floats allowed), default: None
-bot.client.idletimeout = None          # timeout for fetching the result of the idle command is handled seperately, default: None
+bot.client.timeout = 10        # network timeout in seconds (floats allowed), default: None
+bot.client.idletimeout = None  # timeout for fetching the result of the idle command is handled seperately, default: None
 bot.client.connect("localhost", 6600)
 bot.client.consume(1)
 bot.playlist=[]
