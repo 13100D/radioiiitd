@@ -145,32 +145,7 @@
 
     <!-- Normal mounts -->
     
-    <mount type="normal">
-        <mount-name>/seggmesenpaiUwU</mount-name>
 
-        <username>othersource</username>
-        <password>hackmemoredesu</password>
-
-        <max-listeners>1</max-listeners>
-        <dump-file>/tmp/dump-example1.ogg</dump-file>
-        <burst-size>65536</burst-size>
-        <fallback-mount>/example2.ogg</fallback-mount>
-        <fallback-override>1</fallback-override>
-        <fallback-when-full>1</fallback-when-full>
-        <intro>/example_intro.ogg</intro>
-        <hidden>1</hidden>
-        <public>1</public>
-        <authentication type="htpasswd">
-                <option name="filename" value="myauth"/>
-                <option name="allow_duplicate_users" value="0"/>
-        </authentication>
-        <http-headers>
-                <header name="Access-Control-Allow-Origin" value="http://webplayer.example.org" />
-                <header name="baz" value="quux" />
-        </http-headers>
-        <on-connect>/home/icecast/bin/stream-start</on-connect>
-        <on-disconnect>/home/icecast/bin/stream-stop</on-disconnect>
-    </mount>
     <mount>
   <mount-name>/mopidy</mount-name>
   <fallback-mount>/home/_13100d/Downloads/silence.mp3</fallback-mount>
