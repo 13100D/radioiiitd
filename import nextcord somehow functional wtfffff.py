@@ -12,6 +12,10 @@ bot.client.consume(1)
 bot.playlist=[]
 bot.nowplaying=0
 bot.client.clear()
+
+intents = nextcord.Intents.all()
+intents.members = True
+
 @bot.slash_command(description="Replies with pong!")
 async def ping(interaction: nextcord.Interaction):
     await interaction.send("Pong!", ephemeral=False)
@@ -23,6 +27,10 @@ async def queue(interaction: nextcord.Interaction, query: str):
     s=Search(query).results
     bot.playlist.append('https://www.youtube.com/watch?v='+s[0].video_id)
     print(bot.playlist)
+    print(bot.client.status())
+    try: print((bot.client.status()['duration']-bot.client.status()['elapsed']))
+#    try: await asyncio.sleep(bot.client.status()['duration']-bot.client.status()['elapsed'])
+    except: pass
     await play()
 
 async def play():
@@ -32,6 +40,8 @@ async def play():
     currentsong=currentsong[len(currentsong)-1]
     print(bot.client.playlistinfo())
     print(currentsong.url)
+    try: bot.client.connect("localhost", 6600)
+    except: pass
     bot.client.add(currentsong.url)
     bot.client.play()
     print('player should be operational')
@@ -44,7 +54,7 @@ def check_ip():
 @bot.slash_command()
 async def ip(ctx):
 	"""Find current allocated domain for the stream"""
-	embed=nextcord.Embed(color=0x1a5fb4,title=(check_ip()+'/mopidy'))
+	embed=nextcord.Embed(color=0x1a5fb4,title='icecast stream',url=('https:'+str(check_ip()).strip()+'/mopidy'))
 	await ctx.send(embed=embed)
 	print('ngrok ip ==> Command used')
 
