@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+import subprocess
 import nextcord
 from pytube import YouTube
 from pytube import Search
@@ -34,9 +34,19 @@ async def play():
     print(currentsong.url)
     bot.client.add(currentsong.url)
     bot.client.play()
+    print('player should be operational')
 
 
+def check_ip():
+    result=subprocess.check_output("curl -s localhost:4040/api/tunnels | jq -r .tunnels\[0\].public_url", shell=True,text=True)
+    return(str(result)[6:])
 
+@bot.slash_command()
+async def ip(ctx):
+	"""Find current allocated domain for the stream"""
+	embed=nextcord.Embed(color=0x1a5fb4,title=(check_ip()+'/mopidy'))
+	await ctx.send(embed=embed)
+	print('ngrok ip ==> Command used')
 
 
 bot.run("MTAyMzQ5NTY4MzU4OTgyMDQ0Ng.G4YjMZ.DEgoonRoYHkYjy8j9hNO4i_4mkfxK8pj2149TQ")
