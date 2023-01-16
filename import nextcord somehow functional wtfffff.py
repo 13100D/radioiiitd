@@ -4,8 +4,8 @@ import nextcord
 from pytube import YouTube
 from pytube import Search
 from nextcord.ext import commands
-bot = commands.Bot()
 from mpd import MPDClient
+bot = commands.Bot()
 bot.client=MPDClient()
 bot.client.connect("localhost", 6600)
 bot.client.consume(1)
