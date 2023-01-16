@@ -28,4 +28,4 @@ async def queue(interaction: nextcord.Interaction, query: str):
 
 
 
-bot.run("token")#comment
+bot.run("token")
